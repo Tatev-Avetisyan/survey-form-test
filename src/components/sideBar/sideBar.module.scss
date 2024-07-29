@@ -1,0 +1,33 @@
+@import "../../styles/variables/mixins.module";
+
+.asideWrapper {
+  width: 15%;
+  border: 1px solid black;
+  .asideList {
+    list-style-type: none;
+    padding: 1rem;
+    li:first-child {
+      margin-bottom: 20px;
+    }
+    li {
+      width: 65px;
+      height: 45px;
+      margin-top: 10px;
+      @include displayFlexColumnCenter;
+      padding-left: 0.5rem;
+      .icon {
+        @include displayFlexColumnCenter;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        @include displayFlexColumnCenter;
+      }
+      &:hover {
+        border: 1px solid grey;
+        box-shadow: 0 0 5px grey;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

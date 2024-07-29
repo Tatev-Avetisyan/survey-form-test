@@ -1,13 +1,19 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SurveyForm from "./pages/SurveyForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Impact from "./pages/Impact";
+import Data from "./pages/Data";
+import Reporting from "./pages/Reporting";
+import Main from "./components/main/Main";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SurveyForm />} />
+        <Route path="/" element={<Main />} />
+        <Route path="impact" element={<Impact />} />
+        <Route path="data" element={<Data />} />
+        <Route path="reporting" element={<Reporting />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
