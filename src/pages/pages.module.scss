@@ -1,0 +1,40 @@
+@import "../styles/variables/colors.module";
+@import "../styles/variables/mixins.module";
+
+.pagesWrapper {
+  @include mainWrapperFrame;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  height: 8vh;
+  border-bottom: 2px solid #4d4949;
+  background-color: $headerBGColor;
+  box-shadow: $boxShadow;
+  h1 {
+    @include headerTitle;
+  }
+}
+.pageSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 100%;
+  height: 68vh;
+  @include borderRadius;
+  background-color: $mainBGColor;
+  p {
+    font-size: 4rem;
+    color: $white;
+  }
+  .pageBtn {
+    width: 150px;
+    height: 7vh;
+    background-color: $white;
+    @include borderRadius;
+    color: #000;
+    font-size: 3rem;
+  }
+}

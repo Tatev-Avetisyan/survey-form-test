@@ -1,6 +1,27 @@
+@mixin mainWrapperFrame {
+  width: 60%;
+  min-height: 80vh;
+  border: 1px solid rgba(0, 0, 0, 0.659);
+  padding: 24px, 0px, 24px, 0px;
+  border-radius: 8px;
+  display: flex;
+  gap: 32px;
+  margin: 50px auto;
+}
+
 @mixin displayFlexColumnCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@mixin headerTitle {
+  font-size: 4rem;
+  color: aliceblue;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  @include displayFlexColumnCenter;
+}
+@mixin borderRadius {
+  border-radius: 8px;
 }
