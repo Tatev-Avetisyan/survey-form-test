@@ -1,12 +1,17 @@
-@mixin mainWrapperFrame {
-  width: 60%;
-  min-height: 80vh;
-  border: 1px solid rgba(0, 0, 0, 0.659);
+@mixin mainWrapperFrame(
+  $width: 80%,
+  $flex-direction: row,
+  $margin: 0 auto,
+  $box-shadow: 0 0px 5px grey
+) {
+  width: $width;
+  height: auto;
+  box-shadow: $box-shadow;
   padding: 24px, 0px, 24px, 0px;
   border-radius: 8px;
   display: flex;
-  gap: 32px;
-  margin: 50px auto;
+  flex-direction: $flex-direction;
+  margin: $margin;
 }
 
 @mixin displayFlexColumnCenter {
@@ -24,4 +29,24 @@
 }
 @mixin borderRadius {
   border-radius: 8px;
+}
+@mixin paddingLabel {
+  padding-left: 8px;
+}
+
+@mixin inputRadioCheckboxWrapper {
+  & input {
+    width: 20px;
+    height: 20px;
+  }
+  & label {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+@mixin inputBorderStyle {
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 20px;
 }

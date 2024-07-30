@@ -1,5 +1,5 @@
 import Sidebar from "../sideBar/Sidebar";
-import SurveyForm from "../SurveyForm";
+import SurveyForm from "./surveyForm/SurveyForm";
 import styles from "./main.module.scss";
 
 const Main = () => {
