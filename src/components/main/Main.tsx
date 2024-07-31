@@ -1,12 +1,14 @@
 import Sidebar from "../sideBar/Sidebar";
-import SurveyForm from "./surveyForm/SurveyForm";
 import styles from "./main.module.scss";
+import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
     <main className={styles.mainWrapper}>
       <Sidebar />
-      <SurveyForm />
+      <div className={styles.surveyWrapper}>
+        <Outlet />
+      </div>
     </main>
   );
 };

@@ -1,10 +1,34 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 import SurveyNameInput from "./NameInput";
 import FormSelect from "./FormSelect";
 import RecipientsRadioGroup from "./RecipientsRadioGroup";
 import DateInput from "./DateInput";
 import NotesTextarea from "./NotesTextarea";
 import SubmitButton from "./SubmitButton";
+
+const SUBMIT_FORM_MUTATION = gql`
+  mutation SubmitForm(
+    $surveyName: String!
+    $form: String!
+    $recipients: String!
+    $deadlineDate: String!
+    $notes: String!
+  ) {
+    submitForm(
+      input: {
+        surveyName: $surveyName
+        form: $form
+        recipients: $recipients
+        deadlineDate: $deadlineDate
+        notes: $notes
+      }
+    ) {
+      success
+      message
+    }
+  }
+`;
 
 const Form = () => {
   const [surveyName, setSurveyName] = useState("");
@@ -13,9 +37,24 @@ const Form = () => {
   const [deadlineDate, setDeadlineDate] = useState("");
   const [notes, setNotes] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submitForm] = useMutation(SUBMIT_FORM_MUTATION);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(surveyName, form, recipients, deadlineDate, notes);
+    try {
+      const { data } = await submitForm({
+        variables: {
+          surveyName,
+          form,
+          recipients,
+          deadlineDate,
+          notes,
+        },
+      });
+      console.log(data);
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
 
   return (

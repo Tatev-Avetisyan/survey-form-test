@@ -28,5 +28,12 @@
         font-size: 1.5rem;
       }
     }
+
+    .activeItem {
+      background-color: #e0e0e0;
+      font-weight: bold;
+      background-color: rgb(174, 174, 235);
+      color: blue;
+    }
   }
 }

@@ -10,11 +10,11 @@ const Page: React.FC<PageProps> = ({ title }) => {
   const navigate = useNavigate();
 
   const goHome = () => {
-    navigate("/");
+    navigate("/surveys");
   };
 
   return (
-    <main className={styles.pagesWrapper}>
+    <main>
       <header className={styles.title}>
         <h1>{title}</h1>
       </header>

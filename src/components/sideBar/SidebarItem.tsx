@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import DynamicIcon from "./DynamicIcon";
 import styles from "./sideBar.module.scss";
 
@@ -14,8 +14,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   label,
   route,
 }) => {
+  const location = useLocation();
+  const isActive = location.pathname === route;
+
   return (
-    <li>
+    <li className={isActive ? styles.activeItem : ""}>
       <Link to={route} className={styles.link}>
         <DynamicIcon iconName={iconName} fontSize="large" />
         <p>{label}</p>
