@@ -1,13 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Main from "./components/main/Main";
 import Page from "./pages/Page";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-} from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import SurveyForm from "./components/main/surveyForm/SurveyForm";
+import client from "./services/apollo";
 
 const routes = [
   { path: "/impact", title: "Impact Page" },
@@ -23,10 +19,10 @@ const routes = [
   { path: "/settings", title: "Settings Page" },
   { path: "/support", title: "Support Page" },
 ];
-const client = new ApolloClient({
-  link: new HttpLink({ uri: "https://anilist.co/graphiql" }),
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   link: new HttpLink({ uri: "https://anilist.co/graphiql" }),
+//   cache: new InMemoryCache(),
+// });
 
 function App() {
   return (
