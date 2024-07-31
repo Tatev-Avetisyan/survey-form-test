@@ -19,10 +19,6 @@ const routes = [
   { path: "/settings", title: "Settings Page" },
   { path: "/support", title: "Support Page" },
 ];
-// const client = new ApolloClient({
-//   link: new HttpLink({ uri: "https://anilist.co/graphiql" }),
-//   cache: new InMemoryCache(),
-// });
 
 function App() {
   return (
